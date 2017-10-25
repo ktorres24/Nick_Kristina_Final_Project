@@ -10,8 +10,8 @@
 #include "timer.h"
 #include "gpio.h"
 
-#define time 40000
+#define time 56666
 
 
 void PWM_setup(void);
-void PWM_example(void);
+void functions(void);
