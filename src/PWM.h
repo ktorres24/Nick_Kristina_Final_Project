@@ -14,4 +14,4 @@
 
 
 void PWM_setup(void);
-void PWM_example(void);
+void functions(void);

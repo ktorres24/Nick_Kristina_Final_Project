@@ -8,7 +8,7 @@ PWM_setup();
 	
 while (1)
 {	
-PWM_example();
+functions();
 }
 
 }

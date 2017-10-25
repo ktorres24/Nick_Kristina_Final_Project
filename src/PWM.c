@@ -14,8 +14,14 @@
   //Set GPIO to work with PWM
   GPIOPinConfigure(GPIO_PF1_M1PWM5);  //CHANGED                                                     //Configures PF1 with TIMER 0 B
 	GPIOPinConfigure(GPIO_PF2_M1PWM6);  //CHANGED                                                     //Configures PF2 with TIMER 1 A
-  GPIOPinConfigure(GPIO_PF3_M1PWM7);  //CHANGED                                                     //Configures PF3 with TIMER 1 B
-  GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //CHANGED                    //Configures pins PF1,PF2, and PF3 for use by the timer peripheral
+  GPIOPinConfigure(GPIO_PF3_M1PWM7);  //CHANGED 
+	GPIOPinConfigure(GPIO_PA6_M1PWM2);
+	GPIOPinConfigure(GPIO_PA7_M1PWM3);
+	GPIOPinConfigure(GPIO_PD0_M1PWM0);
+	GPIOPinConfigure(GPIO_PF1_M1PWM1);
+  GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //CHANGED
+	GPIOPinTypePWM(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);
+	GPIOPinTypePWM(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);
 	
     PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); // CHANGED configures gen modes
     PWMGenConfigure(PWM1_BASE, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); // CHANGED configures gen modes
@@ -45,53 +51,66 @@
 
  }
 
-  void PWM_example()
+  void functions()
 	{
-	 
-	for (int x=0; x<10; x++)                                                                //Repeat this sequence of light dimming 10 times
+	  int value= GPIOPinRead(GPIO_PORTD_BASE,GPIO_PIN_7);
+    if( (value & GPIO_PIN_7)==0)                                                                //Repeat this sequence of light dimming 10 times
 	 {
 		 //Blue brightness goes up
 		for(int i=Period-2; i > 0; i--)                                                       //This for loop will decrement the duty cycle starting
 		 {          																																					//from Period-2 until the duty cycle is 0 and the BLUE LED
 			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6, i);                                             //will become progressively brighter.
 			SysCtlDelay(time);
-	   }  
-      
+	   } 
+	 }
+
+	  int value1= GPIOPinRead(GPIO_PORTD_BASE,GPIO_PIN_6);
+    if( (value1 & GPIO_PIN_6)==0) 
+    { 
 		//Blue brightness goes down
     for(int i=1; i < Period-1; i++)																											  //This for loop will increment the duty cycle starting
 		 {         																																						//from 1 until the duty cycle is equal to the period 
       PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6, i);                                             //and the BLUE LED will dim until its off.
       SysCtlDelay(time);
 		 }  
+		}
 		
+		value2= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_5);
+    if( (value2 & GPIO_PIN_5)==0)
+		{
 		//Red brightness goes up
 		for(int i=Period-2; i > 0; i--)																												//This for loop will decrement the duty cycle starting
 		 {           																																					//from Period-2 until the duty cycle is 0 and the RED LED
 			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5, i);                                             //will become progressively brighter.                        
 			SysCtlDelay(time);
 		 }  
+		}
 			
+		value3= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_4);
+    if( (value3 & GPIO_PIN_4)==0)
+		{
 		//Red brightness goes down              
     for(int i=1; i < Period-1; i++)                                                       //This for loop will increment the duty cycle starting
 		 {																																										//from 1 until the duty cycle is equal to the period 
       PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5, i);                                      //and the RED LED will dim until its off.	
       SysCtlDelay(time);
-		 } 
+		 }
+	  }
 
 	  //Green brightness goes up         
-    for(int i=Period-2; i > 0; i--)																												//This for loop will decrement the duty cycle starting
-		 {																																										//from Period-2 until the duty cycle is 0 and the GREEN LED
-      PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, i); 																						//will become progressively brighter. 
-      SysCtlDelay(time);
-		 }  
+    //for(int i=Period-2; i > 0; i--)																												//This for loop will decrement the duty cycle starting
+		 //{																																										//from Period-2 until the duty cycle is 0 and the GREEN LED
+      //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, i); 																						//will become progressively brighter. 
+      //SysCtlDelay(time);
+		 //}  
  
 	  //Green brightness goes down              
-    for(int i=1; i < Period-1; i++)                                                       //This for loop will increment the duty cycle starting
-		 {																																										//from 1 until the duty cycle is equal to the period																									
-      PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, i);																							//and the GREEN LED will dim until its off. 			
-      SysCtlDelay(time);
-		 }
-		}		
+    //for(int i=1; i < Period-1; i++)                                                       //This for loop will increment the duty cycle starting
+		 //{																																										//from 1 until the duty cycle is equal to the period																									
+      //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, i);																							//and the GREEN LED will dim until its off. 			
+      //SysCtlDelay(time);
+		 //}
+		//}		
 		
 	  return;																																								//Return to project.c
   }
