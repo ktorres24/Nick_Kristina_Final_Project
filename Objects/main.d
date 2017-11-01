@@ -43,3 +43,8 @@
 .\objects\main.o: driverlib/watchdog.h
 .\objects\main.o: ./src/GPIO.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\main.o: ./src/../inc/hw_types.h
+.\objects\main.o: ./src/../inc/hw_gpio.h
+.\objects\main.o: ./src/PWM.h
+.\objects\main.o: ./src/../inc/hw_ints.h
+.\objects\main.o: ./src/../inc/hw_timer.h

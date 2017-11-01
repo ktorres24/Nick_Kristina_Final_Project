@@ -6,3 +6,6 @@
 .\objects\pwm.o: src\../inc/hw_ints.h
 .\objects\pwm.o: src\../inc/hw_memmap.h
 .\objects\pwm.o: src\../driverlib/pin_map.h
+.\objects\pwm.o: src\../inc/hw_timer.h
+.\objects\pwm.o: src\../inc/hw_gpio.h
+.\objects\pwm.o: src\../driverlib/sysctl.h

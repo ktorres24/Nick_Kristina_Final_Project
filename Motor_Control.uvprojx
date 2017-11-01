@@ -421,6 +421,9 @@
           <GroupName>inc</GroupName>
         </Group>
         <Group>
+          <GroupName>driverlib</GroupName>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>

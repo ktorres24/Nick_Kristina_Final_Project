@@ -22,18 +22,54 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Users\nhunt1\Google Drive\EmbededSystLab\ShemarKristinaNick\Nick_Kristina_Final_Project\Motor_Control.uvprojx
-Project File Date:  10/25/2017
+Project File Date:  11/01/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
 compiling GPIO.c...
-src\GPIO.h(6): error:  #5: cannot open source input file "hw_memmap.h": No such file or directory
-  #include "hw_memmap.h"
-src\GPIO.c: 0 warnings, 1 error
+src\GPIO.c(11): warning:  #223-D: function "GPIOPinTypeGPIOOutput" declared implicitly
+  			GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
+src\GPIO.c(11): error:  #20: identifier "GPIO_PIN_1" is undefined
+  			GPIOPinTypeGPIOOutput(
+PIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
+src\GPIO.c(11): error:  #20: identifier "GPIO_PIN_2" is undefined
+  			GPIOPinTypeGPIOOutput(
+PIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
+src\GPIO.c(11): error:  #20: identifier "GPIO_PIN_3" is undefined
+  			GPIOPinTypeGPIOOutput(
+PIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
+src\GPIO.c(12): error:  #20: identifier "GPIO_PIN_0" is undefined
+  			GPIOPinTypeGPIOOutput(
+PIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);  // 2 MOTORS
+src\GPIO.c(13): error:  #20: identifier "GPIO_PIN_6" is undefined
+  			GPIOPinTypeGPIOOutput(
+PIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7)
+src\GPIO.c(13): error:  #20: identifier "GPIO_PIN_7" is undefined
+  			GPIOPinTypeGPIOOutput(
+PIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7)
+src\GPIO.c(14): error:  #65: expected a ";"
+  			GPIOPinTypeGPIOInput (GPIO_PORTD_BASE, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);  // Adds port d to be used for the two MOM switches
+src\GPIO.c(33): warning:  #223-D: function "GPIODirModeSet" declared implicitly
+  			GPIODirModeSet(GPIO_PORTF_BASE, GPIO_PIN_4|GPIO_PIN_0, GPIO_DIR_MODE_IN);
+src\GPIO.c(33): error:  #20: identifier "GPIO_PIN_4" is undefined
+  			GPIODirModeSet(
+PIO_PORTF_BASE, GPIO_PIN_4|GPIO_PIN_0, GPIO_DIR_MODE_IN);
+src\GPIO.c(33): error:  #20: identifier "GPIO_DIR_MODE_IN" is undefined
+  			GPIODirModeSet(
+PIO_PORTF_BASE, GPIO_PIN_4|GPIO_PIN_0, GPIO_DIR_MODE_IN);
+src\GPIO.c(34): warning:  #223-D: function "GPIOPadConfigSet" declared implicitly
+  			GPIOPadConfigSet(GPIO_PORTF_BASE,GPIO_PIN_4|GPIO_PIN_0,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);
+src\GPIO.c(34): error:  #20: identifier "GPIO_STRENGTH_2MA" is undefined
+  			GPIOPadConfigSet(
+PIO_PORTF_BASE,GPIO_PIN_4|GPIO_PIN_0,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);
+src\GPIO.c(34): error:  #20: identifier "GPIO_PIN_TYPE_STD_WPU" is undefined
+  			GPIOPadConfigSet(
+PIO_PORTF_BASE,GPIO_PIN_4|GPIO_PIN_0,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);
+src\GPIO.c: 3 warnings, 11 errors
 compiling PWM.c...
-src\PWM.h(7): error:  #5: cannot open source input file "hw_timer.h": No such file or directory
-  #include "hw_timer.h"
+src\PWM.h(10): error:  #5: cannot open source input file "timer.h": No such file or directory
+  #include "timer.h"
 src\PWM.c: 0 warnings, 1 error
 assembling startup_TM4C123.s...
 compiling main.c...
@@ -45,11 +81,13 @@ driverlib/hibernate.h(231): warning:  #231-D: declaration is not visible outside
   extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
-./src/GPIO.h(6): error:  #5: cannot open source input file "hw_memmap.h": No such file or directory
-  #include "hw_memmap.h"
-main.c: 4 warnings, 1 error
+main.h(43): warning:  #1-D: last line of file ends without a newline
+  #include "./src/PWM.h"
+./src/PWM.h(10): error:  #5: cannot open source input file "timer.h": No such file or directory
+  #include "timer.h"
+main.c: 5 warnings, 1 error
 compiling system_TM4C123.c...
-".\Objects\Motor_Control.axf" - 3 Error(s), 4 Warning(s).
+".\Objects\Motor_Control.axf" - 13 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -73,9 +111,9 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: Keil::Device:Startup:1.0.1
+      Source file:   Device\Source\system_TM4C123.c
       Include file:  Device\Include\TM4C123\TM4C123.h
       Source file:   Device\Source\ARM\startup_TM4C123.s
-      Source file:   Device\Source\system_TM4C123.c
 
    * Component: ARM::CMSIS:CORE:5.0.1
 Target not created.

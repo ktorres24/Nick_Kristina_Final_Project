@@ -3,9 +3,9 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "../driverlib/sysctl.h"
-#include "hw_memmap.h"
-#include "hw_types.h"
-#include "hw_gpio.h"
+#include "../inc/hw_memmap.h"
+#include "../inc/hw_types.h"
+#include "../inc/hw_gpio.h"
 
 
 void Gpio_setup (void) ; 
