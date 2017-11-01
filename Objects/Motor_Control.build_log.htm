@@ -22,19 +22,19 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Users\ktorres\Desktop\Fall '17\Nick_Kristina_Final_Project\Motor_Control.uvprojx
-Project File Date:  10/18/2017
+Project File Date:  11/01/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling GPIO.c...
-src\GPIO.h(5): error:  #5: cannot open source input file "sysctl.h": No such file or directory
-  #include "sysctl.h"
-src\GPIO.c: 0 warnings, 1 error
 compiling PWM.c...
 src\PWM.h(4): error:  #5: cannot open source input file "hw_ints.h": No such file or directory
   #include "hw_ints.h"
 src\PWM.c: 0 warnings, 1 error
+compiling GPIO.c...
+src\GPIO.h(5): error:  #5: cannot open source input file "sysctl.h": No such file or directory
+  #include "sysctl.h"
+src\GPIO.c: 0 warnings, 1 error
 assembling startup_TM4C123.s...
 compiling main.c...
 driverlib/hibernate.h(229): warning:  #231-D: declaration is not visible outside of function
@@ -73,9 +73,9 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: Keil::Device:Startup:1.0.1
-      Source file:   Device\Source\ARM\startup_TM4C123.s
       Include file:  Device\Include\TM4C123\TM4C123.h
       Source file:   Device\Source\system_TM4C123.c
+      Source file:   Device\Source\ARM\startup_TM4C123.s
 
    * Component: ARM::CMSIS:CORE:5.0.1
 Target not created.
