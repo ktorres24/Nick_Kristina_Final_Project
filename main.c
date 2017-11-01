@@ -19,14 +19,19 @@ int main();
 	//psuedo code for now
 	while x == 1
 	{
+		GPIO_LEFT = GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_4);
+		GPIO_FWD = GPIOPinRead(GPIO_PORTD_BASE,GPIO_PIN_6);
+		GPIO_RIGHT = GPIOPinRead(GPIO_PORTF_BASE,GPIO_PIN_0);
+		GPIO_BACK GPIOPinRead(GPIO_PORTD_BASE,GPIO_PIN_7);
+		
 		//FORWARD
-		if(GPIO_FWD == 1)
+		if(GPIO_FWD == 1) //PORTD_P6
 		{
 			//send pwm signal
 		}
 		
 		//BACKWARDS
-		if(GPIO_BACK == 1)
+		if(GPIO_BACK == 1) //PORTD_P7
 		{
 			//send pwm signal
 		}

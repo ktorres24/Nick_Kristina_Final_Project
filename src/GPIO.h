@@ -2,8 +2,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include "sysctl.h"
-#include "gpio.h"
+#include "../driverlib/sysctl.h"
 #include "hw_memmap.h"
 #include "hw_types.h"
 #include "hw_gpio.h"

@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.24.2.0
 Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Kristina Torres, Lawrence Technological University, LIC=----
+License Information: Nick Hunt, LTU, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.24.1
@@ -21,19 +21,19 @@ Target DLL:      lmidk-agdi.dll V???
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-C:\Users\ktorres\Desktop\Fall '17\Nick_Kristina_Final_Project\Motor_Control.uvprojx
-Project File Date:  10/18/2017
+C:\Users\nhunt1\Google Drive\EmbededSystLab\ShemarKristinaNick\Nick_Kristina_Final_Project\Motor_Control.uvprojx
+Project File Date:  10/25/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
 compiling GPIO.c...
-src\GPIO.h(5): error:  #5: cannot open source input file "sysctl.h": No such file or directory
-  #include "sysctl.h"
+src\GPIO.h(6): error:  #5: cannot open source input file "hw_memmap.h": No such file or directory
+  #include "hw_memmap.h"
 src\GPIO.c: 0 warnings, 1 error
 compiling PWM.c...
-src\PWM.h(4): error:  #5: cannot open source input file "hw_ints.h": No such file or directory
-  #include "hw_ints.h"
+src\PWM.h(7): error:  #5: cannot open source input file "hw_timer.h": No such file or directory
+  #include "hw_timer.h"
 src\PWM.c: 0 warnings, 1 error
 assembling startup_TM4C123.s...
 compiling main.c...
@@ -45,8 +45,8 @@ driverlib/hibernate.h(231): warning:  #231-D: declaration is not visible outside
   extern void HibernateCalendarMatchSet(uint32_t ui32Index, struct tm *psTime);
 driverlib/hibernate.h(232): warning:  #231-D: declaration is not visible outside of function
   extern void HibernateCalendarMatchGet(uint32_t ui32Index, struct tm *psTime);
-./src/GPIO.h(5): error:  #5: cannot open source input file "sysctl.h": No such file or directory
-  #include "sysctl.h"
+./src/GPIO.h(6): error:  #5: cannot open source input file "hw_memmap.h": No such file or directory
+  #include "hw_memmap.h"
 main.c: 4 warnings, 1 error
 compiling system_TM4C123.c...
 ".\Objects\Motor_Control.axf" - 3 Error(s), 4 Warning(s).
@@ -73,13 +73,13 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: Keil::Device:Startup:1.0.1
-      Source file:   Device\Source\ARM\startup_TM4C123.s
       Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
 
    * Component: ARM::CMSIS:CORE:5.0.1
 Target not created.
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

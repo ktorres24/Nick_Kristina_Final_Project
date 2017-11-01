@@ -1,6 +1,7 @@
 .\objects\main.o: main.c
-.\objects\main.o: main.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\main.o: main.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\main.o: inc/hw_memmap.h
 .\objects\main.o: driverlib/adc.h
@@ -42,4 +43,3 @@
 .\objects\main.o: driverlib/watchdog.h
 .\objects\main.o: ./src/GPIO.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
