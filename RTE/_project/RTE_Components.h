@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Motor_Control' 
- * Target:  'Target 1' 
+ * Project: 'project' 
+ * Target:  'project' 
  */
 
 #ifndef RTE_COMPONENTS_H

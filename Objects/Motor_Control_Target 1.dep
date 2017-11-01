@@ -1,69 +1,0 @@
-Dependencies for Project 'Motor_Control', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x59F9DC6F)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588C2C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
-I (main.h)(0x59F9DF23)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
-I (inc/hw_memmap.h)(0x59F9DBA8)
-I (driverlib/adc.h)(0x59F9DBA7)
-I (driverlib/aes.h)(0x59F9DBA7)
-I (driverlib/can.h)(0x59F9DBA7)
-I (driverlib/comp.h)(0x59F9DBA7)
-I (driverlib/cpu.h)(0x59F9DBA7)
-I (driverlib/crc.h)(0x59F9DBA7)
-I (driverlib/debug.h)(0x59F9DBA7)
-I (driverlib/des.h)(0x59F9DBA7)
-I (driverlib/eeprom.h)(0x59F9DBA7)
-I (driverlib/emac.h)(0x59F9DBA7)
-I (driverlib/epi.h)(0x59F9DBA7)
-I (driverlib/flash.h)(0x59F9DBA7)
-I (driverlib/fpu.h)(0x59F9DBA7)
-I (driverlib/gpio.h)(0x59F9DBA7)
-I (driverlib/hibernate.h)(0x59F9DBA7)
-I (driverlib/i2c.h)(0x59F9DBA7)
-I (driverlib/interrupt.h)(0x59F9DBA7)
-I (driverlib/lcd.h)(0x59F9DBA7)
-I (driverlib/mpu.h)(0x59F9DBA7)
-I (driverlib/onewire.h)(0x59F9DBA7)
-I (driverlib/pin_map.h)(0x59F9DBA7)
-I (driverlib/pwm.h)(0x59F9DBA7)
-I (driverlib/qei.h)(0x59F9DBA7)
-I (driverlib/rom.h)(0x59F9DBA7)
-I (driverlib/rom_map.h)(0x59F9DBA7)
-I (driverlib/rtos_bindings.h)(0x59F9DBA7)
-I (driverlib/shamd5.h)(0x59F9DBA7)
-I (driverlib/ssi.h)(0x59F9DBA7)
-I (driverlib/sw_crc.h)(0x59F9DBA7)
-I (driverlib/sysctl.h)(0x59F9DBA7)
-I (driverlib/sysexc.h)(0x59F9DBA7)
-I (driverlib/systick.h)(0x59F9DBA7)
-I (driverlib/timer.h)(0x59F9DBA7)
-I (driverlib/uart.h)(0x59F9DBA7)
-I (driverlib/udma.h)(0x59F9DBA7)
-I (driverlib/usb.h)(0x59F9DBA7)
-I (driverlib/watchdog.h)(0x59F9DBA7)
-I (./src/GPIO.h)(0x59F9DF78)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
-F (.\main.h)(0x59F9DF23)()
-F (.\src\GPIO.c)(0x59F9DC6F)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM-o .\objects\gpio.o --omf_browse .\objects\gpio.crf --depend .\objects\gpio.d)
-I (src\GPIO.h)(0x59F9DF78)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588C2C04)
-F (.\src\PWM.c)(0x59F9DBA9)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM-o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d)
-I (src\PWM.h)(0x59F9DF78)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
-I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
-F (.\src\GPIO.h)(0x59F9DF78)()
-F (.\src\PWM.h)(0x59F9DF78)()
-F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x59F9DBA7)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
-F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x59F9DBA7)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="524" -D_RTE_ -DTM4C123GH6PM-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
-I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530F4756)
-I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x5510368C)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm4.h)(0x5898F24A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898F24A)
-I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898F24A)
-I (C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B73866)
