@@ -15,40 +15,77 @@ __error__(char *pcFilename, uint32_t ui32Line)
 #endif
 
 
-int  main(void)
+int x = 1;
+int GPIO_LEFT;
+int GPIO_FWD;
+int GPIO_RIGHT;
+int GPIO_BACK;
+
+int main()
 {
-    volatile uint32_t ui32Loop;
+	Gpio_setup();
+	PWM_setup();
 	
-    // Enable the GPIO port that is used for the on-board LED.
-		SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
-    
-		// Check if the peripheral access is enabled.
-    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOF))
-    {
-    
+	//need to set up some sort of delay/checking period after a button is pressed so that our code can check and see 
+	//if another button is also pressed (buttons won't be pressed "simultaneously", right?)
+	
+	//psuedo code for now
+	while x == 1
+	{
+		//FORWARD
+		if(GPIO_FWD == 1)
+		{ 
+		// FORWARD RIGHT TURN
+		if(GPIO_FWD == 1 & GPIO_RIGHT ==1)
+		{
+			//send pwm signal, (Left side speed > Right side speed)
 		}
-    
+		//FORWARD RIGHT TURN
+		else if ( (GPIO_FWD == 1 & GPIO_LEFT ==1)
+		{
+			//send pwm signal, (Right side speed > Left side speed)
+		}
+		//FORWARD
+		else 
+		{
+			//send pwm signal
+		}
+		}
 		
-		// Enable the GPIO pin for the LED (PF3).  Set the direction as output, and
-    // enable the GPIO pin for digital function.
-    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_3);
-    while(1)
-    {
-				
-        // Turn on the LED.
-        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0xF);
-
-        // Delay for a bit.
-        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
-        {
-        }
-
-        // Turn off the LED.
-        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, 0x0);
-
-        // Delay for a bit.
-        for(ui32Loop = 0; ui32Loop < 200000; ui32Loop++)
-        {
-        }
-    }
+		//BACKWARDS
+		if(GPIO_BACK == 1)
+		{		
+		//BACK & RIGHT
+		if(GPIO_BACK == 1 & GPIO_RIGHT ==1)
+		{
+			//send pwm signal, (Negative Left side speed > Negative Right side speed)
+		}
+		//BACK & LEFT
+		else if(GPIO_BACK == 1 & GPIO_LEFT ==1)
+		{
+			//send pwm signal, (Negative Right side speed > Negative Left side speed)
+		}
+		//BACKWARDS
+		else
+		{
+			//send pwm signal
+		}
+		}
+		
+		//LEFT (0 turn)
+		if(GPIO_LEFT == 1)
+		{
+			//send pwm signal
+		}
+		
+		//RIGHT (0 turn)
+		if(GPIO_RIGHT == 1)
+		{
+			//send pwm signal
+		}
+	
+		
+	
+		
+	}
 }

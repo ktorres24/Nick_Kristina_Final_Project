@@ -39,3 +39,6 @@
 #include "driverlib/udma.h"
 #include "driverlib/usb.h"
 #include "driverlib/watchdog.h"
+
+#include "./src/GPIO.h"
+#include "./src/PWM.h"
