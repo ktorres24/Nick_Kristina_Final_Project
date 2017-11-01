@@ -36,16 +36,17 @@
 
     //Set PWM duty-50% (Period /2)
  
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5, Duty_Cycle); //changed   
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6, Duty_Cycle); //changed
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, Duty_Cycle); //changed
-	
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, Duty_Cycle); //changed   
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, Duty_Cycle); //changed
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, Duty_Cycle); //changed
+	  PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, Duty_Cycle); //changed
+		
     // Enable the PWM generator
     PWMGenEnable(PWM1_BASE, PWM_GEN_2); //enables gen 2
     PWMGenEnable(PWM1_BASE, PWM_GEN_3); //enables gen 3
 		
 		// Turn on the Output pins
-    PWMOutputState(PWM1_BASE, PWM_OUT_5_BIT | PWM_OUT_6_BIT | PWM_OUT_7_BIT, true);
+    PWMOutputState(PWM1_BASE, PWM_OUT_0_BIT | PWM_OUT_1_BIT | PWM_OUT_2_BIT | PWM_OUT_3_BIT, true);
 		
 	return;         																																				 //Return to project.c
 
@@ -97,20 +98,5 @@
 		 }
 	  }
 
-	  //Green brightness goes up         
-    //for(int i=Period-2; i > 0; i--)																												//This for loop will decrement the duty cycle starting
-		 //{																																										//from Period-2 until the duty cycle is 0 and the GREEN LED
-      //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, i); 																						//will become progressively brighter. 
-      //SysCtlDelay(time);
-		 //}  
- 
-	  //Green brightness goes down              
-    //for(int i=1; i < Period-1; i++)                                                       //This for loop will increment the duty cycle starting
-		 //{																																										//from 1 until the duty cycle is equal to the period																									
-      //PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7, i);																							//and the GREEN LED will dim until its off. 			
-      //SysCtlDelay(time);
-		 //}
-		//}		
-		
 	  return;																																								//Return to project.c
   }
