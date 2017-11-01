@@ -1,4 +1,4 @@
-#include "GPIO.h"
+#include "GPIO_helper.h"
 
 	//This function sets up GPIO pins
 void Gpio_setup()
@@ -9,8 +9,9 @@ void Gpio_setup()
 		
 			GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
 			GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);  // 2 MOTORS
-			GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7)
-			GPIOPinTypeGPIOInput (GPIO_PORTD_BASE, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);  // Adds port d to be used for the two MOM switches
+			GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);  // 2 MOTORS
+			GPIOPinTypeGPIOInput (GPIO_PORTD_BASE, GPIO_PIN_6|GPIO_PIN_7);  // Adds port d to be used for the two MOM switches
+		  GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_0|GPIO_PIN_4);
 		
 			// The code below unlocks the buttons and sets the drive strength, this was taken from a TIVA example file
 			HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
@@ -37,9 +38,9 @@ void Gpio_setup()
 			GPIODirModeSet(GPIO_PORTD_BASE, GPIO_PIN_6|GPIO_PIN_7, GPIO_DIR_MODE_IN);												 // of portD and prevents needing to power and add 
 																																																		   // resistors to the external mom switches.
 			//enable GPIO interrupts on pins 4,5,6,7 of port D.																																																	
-			GPIOIntEnable(GPIO_PORTD_BASE, GPIO_PIN_4| GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7)
+			//GPIOIntEnable(GPIO_PORTD_BASE, GPIO_PIN_4| GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7)
 			//register PORT D interrups
-			GPIOIntRegister(GPIO_PORTD_BASE, PortDIntHandler); //not 100% sure what this interrupt does yet
+			//GPIOIntRegister(GPIO_PORTD_BASE, PortDIntHandler); //not 100% sure what this interrupt does yet
 			
 			
 	} 

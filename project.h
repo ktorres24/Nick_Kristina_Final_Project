@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "inc/hw_memmap.h"
+
 #include "driverlib/adc.h"
 #include "driverlib/aes.h"
 #include "driverlib/can.h"
@@ -39,5 +40,5 @@
 #include "driverlib/usb.h"
 #include "driverlib/watchdog.h"
 
-#include "./src/GPIO.h"
-#include "./src/PWM.h"
+#include "./src/GPIO_helper.h"
+#include "./src/PWM_helper.h"
