@@ -1,4 +1,4 @@
-#include "GPIO.h"
+#include "GPIO_helper.h"
 
 	//This function sets up GPIO pins
 void Gpio_setup()

@@ -1,4 +1,4 @@
- #include "PWM.h"
+ #include "PWM_helper.h"
 
  int Period, Duty_Cycle, value;																														 //Initializes variables
  
@@ -18,7 +18,7 @@
 	GPIOPinConfigure(GPIO_PA6_M1PWM2);
 	GPIOPinConfigure(GPIO_PA7_M1PWM3);
 	GPIOPinConfigure(GPIO_PD0_M1PWM0);
-	GPIOPinConfigure(GPIO_PF1_M1PWM1);
+	GPIOPinConfigure(GPIO_PD1_M1PWM1);
   GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //CHANGED
 	GPIOPinTypePWM(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);
 	GPIOPinTypePWM(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);
@@ -27,6 +27,7 @@
     PWMGenConfigure(PWM1_BASE, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); // CHANGED configures gen modes
  
 	 //Define Period and Duty_Cycle
+  uint32_t Period;
   Period = PWMClockGet()/100000;  //changed                                                //Gets the PWM clock rate and devides it by 100kHz. Period=800Hz
   Duty_Cycle = Period/2;                                                                   //Sets Duty_Cycle to 400Hz
 
@@ -76,7 +77,7 @@
 		 }  
 		}
 		
-		value2= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_5);
+		int value2= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_5);
     if( (value2 & GPIO_PIN_5)==0)
 		{
 		//Red brightness goes up
@@ -87,7 +88,7 @@
 		 }  
 		}
 			
-		value3= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_4);
+		int value3= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_4);
     if( (value3 & GPIO_PIN_4)==0)
 		{
 		//Red brightness goes down              

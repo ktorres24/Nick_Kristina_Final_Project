@@ -9,6 +9,8 @@
 #include "sysctl.h"
 #include "timer.h"
 #include "gpio.h"
+#include "hw_pwm.h"
+#include "pwm.h"
 
 #define time 56666
 

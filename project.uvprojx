@@ -336,7 +336,7 @@
               <MiscControls>--c99</MiscControls>
               <Define>rvmdk PART_TM4C123GH6PM TARGET_IS_TM4C123_RB1</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..</IncludePath>
+              <IncludePath>..\..;.\driverlib;.\src;.\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -414,14 +414,14 @@
           <GroupName>src</GroupName>
           <Files>
             <File>
-              <FileName>GPIO.c</FileName>
+              <FileName>GPIO_helper.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\GPIO.c</FilePath>
+              <FilePath>.\src\GPIO_helper.c</FilePath>
             </File>
             <File>
-              <FileName>PWM.c</FileName>
+              <FileName>PWM_helper.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\PWM.c</FilePath>
+              <FilePath>.\src\PWM_helper.c</FilePath>
             </File>
           </Files>
         </Group>
