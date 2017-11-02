@@ -8,7 +8,13 @@
 #include "../inc/hw_gpio.h"
 #include "../driverlib/sysctl.h"
 #include "timer.h"
+<<<<<<< HEAD:src/PWM.h
 //#include "gpio.h"
+=======
+#include "gpio.h"
+#include "hw_pwm.h"
+#include "pwm.h"
+>>>>>>> master:src/PWM_helper.h
 
 #define time 56666
 
