@@ -34,10 +34,10 @@
 
     //Set PWM duty-50% (Period /2)
  
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 160); //changed   
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 160); //changed
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 160); //changed
-	  PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 160); //changed
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 160);   
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 160); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 160); 
+	  PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 160); 
 		
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5,100);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,100);
