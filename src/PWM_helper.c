@@ -8,7 +8,7 @@
 	 
    SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |   SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ); //changed set the clock
 
-   SysCtlPWMClockSet(SYSCTL_PWMDIV_64); //changed set the PWM clock with the system clock
+   SysCtlPWMClockSet(SYSCTL_PWMDIV_1); //changed set the PWM clock with the system clock
 	 SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1); //changed enabled module 1 of pwm to work with leds (may need to change)
 	
   //Set GPIO to work with PWM
@@ -26,21 +26,22 @@
     PWMGenConfigure(PWM1_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); // CHANGED configures gen modes
     PWMGenConfigure(PWM1_BASE, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); // CHANGED configures gen modes
  
-	 //Define Period and Duty_Cycle
-  uint32_t Period;
-  Period = PWMClockGet()/100000;  //changed                                                //Gets the PWM clock rate and devides it by 100kHz. Period=800Hz
-  Duty_Cycle = Period/2;                                                                   //Sets Duty_Cycle to 400Hz
+                                                               //Sets Duty_Cycle to 400Hz
 
     //Set the Period (expressed in clock ticks)
-    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_2, Period); //changed
-    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_3, Period); //changed
+    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_2, 320); //changed
+    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_3, 320); //changed
 
     //Set PWM duty-50% (Period /2)
  
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, Duty_Cycle); //changed   
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, Duty_Cycle); //changed
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, Duty_Cycle); //changed
-	  PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, Duty_Cycle); //changed
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 160); //changed   
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 160); //changed
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 160); //changed
+	  PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 160); //changed
+		
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5,100);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,100);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7,100);
 		
     // Enable the PWM generator
     PWMGenEnable(PWM1_BASE, PWM_GEN_2); //enables gen 2
