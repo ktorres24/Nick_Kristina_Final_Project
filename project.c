@@ -24,8 +24,8 @@ int GPIO_BACK;
 
 int main()
 {
-   Gpio_setup();
-	//PWM_setup();
+  Gpio_setup();
+	PWM_setup();
 	
 	//need to set up some sort of delay/checking period after a button is pressed so that our code can check and see 
 	//if another button is also pressed (buttons won't be pressed "simultaneously", right?)
@@ -45,10 +45,10 @@ int main()
 		// FORWARD RIGHT TURN
 		if((GPIO_RIGHT & GPIO_PIN_0)== 0)
 		{
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 320);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 320); 
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 160); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 160); 	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 500);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 250); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 250); 	
 //MIGHT NEED A DELAY HERE?		
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
@@ -59,11 +59,11 @@ int main()
 		//FORWARD LEFT TURN
 		else if ( (GPIO_LEFT & GPIO_PIN_7)==0)
 		{
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 320);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 320); 
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 160); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 160); 	
-//MIGHT NEED A DELAY HERE?		
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 500); 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 250); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 250); 	
+//MIGHT NEED A DELAY HERE?	
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
@@ -72,10 +72,10 @@ int main()
 		//FORWARD
 		else 
 		{
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 320);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 320); 
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 320); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 320); 	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 500);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 500); 	
 //MIGHT NEED A DELAY HERE?		
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
@@ -84,17 +84,16 @@ int main()
 
 		}
 		}
-		
-		//BACKWARDS
+			//BACKWARDS
 		if((GPIO_BACK & GPIO_PIN_6) == 0)
 		{		
 		//BACK & RIGHT
 		if((GPIO_RIGHT & GPIO_PIN_0)==0)
 		{
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -320);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -320); 
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -160); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, -160); 	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -500);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -500); 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -250); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, -250); 	
 //MIGHT NEED A DELAY HERE?		
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
@@ -105,10 +104,10 @@ int main()
 		//BACK & LEFT
 		else if((GPIO_LEFT & GPIO_PIN_4) ==0)
 		{
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -320);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, -320); 
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -160); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -160); 	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -500);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, -500); 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -250); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -250); 	
 //MIGHT NEED A DELAY HERE?		
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
@@ -119,10 +118,10 @@ int main()
 		//BACKWARDS
 		else
 		{
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -320);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -320); 
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -320); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, -320); 	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -500);
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -500); 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -500); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, -500); 	
 //MIGHT NEED A DELAY HERE?		
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
@@ -131,13 +130,17 @@ int main()
 			//send pwm signal
 		}
 		}
-		else{}
+
+		
+		
+
+
 		
 		//LEFT (0 turn)
 		if((GPIO_LEFT & GPIO_PIN_4) == 0)
 		{ 
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 320); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 320); 	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 500); 	
 //MIGHT NEED A DELAY HERE?		
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
@@ -148,8 +151,8 @@ int main()
 		//RIGHT (0 turn)
 		if((GPIO_RIGHT & GPIO_PIN_0)== 0)
 		{
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 320); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 320); 	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 500); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 	
 //MIGHT NEED A DELAY HERE?		
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0);
@@ -157,4 +160,5 @@ int main()
 		}
 		
 	}
+
 }
