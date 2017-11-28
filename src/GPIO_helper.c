@@ -8,7 +8,8 @@ void Gpio_setup()
 			SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);  // Enables the use of PORTD
 		
 			GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
-			GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
+			GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // 
+		  GPIOPinTypeGPIOOutput(GPIO_PORTC_BASE, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7); // 
 			GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);  // 2 MOTORS
 			GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);  // 2 MOTORS
 			GPIOPinTypeGPIOInput (GPIO_PORTD_BASE, GPIO_PIN_6|GPIO_PIN_7);  // Adds port d to be used for the two MOM switches
@@ -23,6 +24,12 @@ void Gpio_setup()
 			HWREG(GPIO_PORTE_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
 			HWREG(GPIO_PORTE_BASE + GPIO_O_CR)  = 0x01;
 			HWREG(GPIO_PORTE_BASE + GPIO_O_LOCK) = 0;
+		
+			// The code below unlocks the buttons and sets the drive strength, this was taken from a TIVA example file
+			HWREG(GPIO_PORTC_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+			HWREG(GPIO_PORTC_BASE + GPIO_O_CR)  = 0x01;
+			HWREG(GPIO_PORTC_BASE + GPIO_O_LOCK) = 0;
+		
 		
 		
 		  // Port D unlocked below
