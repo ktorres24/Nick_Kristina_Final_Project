@@ -38,16 +38,18 @@ int main()
 		GPIO_FWD = GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_6);
 		GPIO_RIGHT = GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_0);
 		GPIO_BACK = GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_7);
-		
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_3, GPIO_PIN_3);	
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_7, GPIO_PIN_7);	
 		//FORWARD
 		if((GPIO_FWD & GPIO_PIN_6)      == 0)
 		{
 		// FORWARD RIGHT TURN
 		if((GPIO_RIGHT & GPIO_PIN_0)== 0)
 		{
-		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);
-		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_1);
-		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_3, GPIO_PIN_1);	
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, GPIO_PIN_6);
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 500);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 250); 
@@ -57,13 +59,17 @@ int main()
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 	
-		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0);
-		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);
 	   
 		}
 		//FORWARD LEFT TURN
 		else if ( (GPIO_LEFT & GPIO_PIN_7)==0)
 		{
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, GPIO_PIN_6);	
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 500); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 250); 
@@ -72,11 +78,17 @@ int main()
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 	
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);
 		}
 		//FORWARD
 		else 
 		{
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, GPIO_PIN_6);	
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 500);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500); 
@@ -85,7 +97,9 @@ int main()
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);
 
 		}
 		}
@@ -95,6 +109,10 @@ int main()
 		//BACK & RIGHT
 		if((GPIO_RIGHT & GPIO_PIN_0)==0)
 		{
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, GPIO_PIN_5);		
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -500);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -500); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -250); 
@@ -103,12 +121,18 @@ int main()
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 	
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);
 			//send pwm signal, (Negative Left side speed > Negative Right side speed)
 		}
 		//BACK & LEFT
 		else if((GPIO_LEFT & GPIO_PIN_4) ==0)
 		{
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, GPIO_PIN_5);		
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -500);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, -500); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -250); 
@@ -118,11 +142,17 @@ int main()
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 	
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);	
 			//send pwm signal, (Negative Right side speed > Negative Left side speed)
 		}
 		//BACKWARDS
 		else
 		{
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, GPIO_PIN_5);	
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, -500);
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, -500); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, -500); 
@@ -132,36 +162,38 @@ int main()
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0); 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);	
 			//send pwm signal
 		}
 		}
 
 		
-		
-
-
-		
 		//LEFT (0 turn)
 		if((GPIO_LEFT & GPIO_PIN_4) == 0)
 		{ 
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, GPIO_PIN_6);	
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 500); 	
 //MIGHT NEED A DELAY HERE?		
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 0); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0); 
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_1, 0);
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);
 
 		}
-
 		
 		//RIGHT (0 turn)
 		if((GPIO_RIGHT & GPIO_PIN_0)== 0)
 		{
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);	
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 500); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 	
 //MIGHT NEED A DELAY HERE?		
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0);
-		
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_2, 0);	
 		}
 		
 	}
