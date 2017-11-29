@@ -45,7 +45,7 @@ int main()
 		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);
 		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);
 		//FORWARD
-		if((GPIO_FWD & GPIO_PIN_6)      == 0)
+		if((GPIO_FWD & GPIO_PIN_6) == 0)
 		{
 		// FORWARD RIGHT TURN
 		if((GPIO_RIGHT & GPIO_PIN_0)== 0)

@@ -18,39 +18,37 @@ void Gpio_setup()
 		  GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_0|GPIO_PIN_4);
 			GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, GPIO_PIN_2);
 			// The code below unlocks the buttons and sets the drive strength, this was taken from a TIVA example file
-			HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
-			HWREG(GPIO_PORTF_BASE + GPIO_O_CR)  = 0x01;
-			HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = 0;
+
+    HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+    HWREG(GPIO_PORTF_BASE + GPIO_O_CR) |= 0x80;
 		
 			// The code below unlocks the buttons and sets the drive strength, this was taken from a TIVA example file
-			HWREG(GPIO_PORTE_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
-			HWREG(GPIO_PORTE_BASE + GPIO_O_CR)  = 0x01;
-			HWREG(GPIO_PORTE_BASE + GPIO_O_LOCK) = 0;
+    HWREG(GPIO_PORTE_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+    HWREG(GPIO_PORTE_BASE + GPIO_O_CR) |= 0x80;
 		
 			// The code below unlocks the buttons and sets the drive strength, this was taken from a TIVA example file
-			HWREG(GPIO_PORTC_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
-			HWREG(GPIO_PORTC_BASE + GPIO_O_CR)  = 0x01;
-			HWREG(GPIO_PORTC_BASE + GPIO_O_LOCK) = 0;
+    HWREG(GPIO_PORTC_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+    HWREG(GPIO_PORTC_BASE + GPIO_O_CR) |= 0x80;
 		
 		
 		
 		  // Port D unlocked below
-			HWREG(GPIO_PORTD_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
-			HWREG(GPIO_PORTD_BASE + GPIO_O_CR)  = 0x01;
-			HWREG(GPIO_PORTD_BASE + GPIO_O_LOCK) = 0;
+    HWREG(GPIO_PORTD_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+    HWREG(GPIO_PORTD_BASE + GPIO_O_CR) |= 0x80;
 			
 		  // Port A
-			HWREG(GPIO_PORTA_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
-			HWREG(GPIO_PORTA_BASE + GPIO_O_CR)  = 0x01;
-			HWREG(GPIO_PORTA_BASE + GPIO_O_LOCK) = 0;
+    HWREG(GPIO_PORTA_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
+    HWREG(GPIO_PORTA_BASE + GPIO_O_CR) |= 0x80;
 		
 		
 			GPIODirModeSet(GPIO_PORTF_BASE, GPIO_PIN_4|GPIO_PIN_0, GPIO_DIR_MODE_IN);
 			GPIOPadConfigSet(GPIO_PORTF_BASE,GPIO_PIN_4|GPIO_PIN_0,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);
 		
+			GPIODirModeSet(GPIO_PORTA_BASE, GPIO_PIN_2, GPIO_DIR_MODE_IN);
+			GPIOPadConfigSet(GPIO_PORTA_BASE,GPIO_PIN_2,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU);
 		
-			GPIOPadConfigSet(GPIO_PORTD_BASE,GPIO_PIN_6|GPIO_PIN_7,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU); // This enables the pull up resistors on pin 6 and 7 
-			GPIODirModeSet(GPIO_PORTD_BASE, GPIO_PIN_6|GPIO_PIN_7, GPIO_DIR_MODE_IN);												 // of portD and prevents needing to power and add 
+			GPIOPadConfigSet(GPIO_PORTD_BASE,GPIO_PIN_6,GPIO_STRENGTH_2MA,GPIO_PIN_TYPE_STD_WPU); // This enables the pull up resistors on pin 6 and 7 
+			GPIODirModeSet(GPIO_PORTD_BASE, GPIO_PIN_6, GPIO_DIR_MODE_IN);												 // of portD and prevents needing to power and add 
 																																																		   // resistors to the external mom switches.
 			//enable GPIO interrupts on pins 4,5,6,7 of port D.																																																	
 			//GPIOIntEnable(GPIO_PORTD_BASE, GPIO_PIN_4| GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7)
