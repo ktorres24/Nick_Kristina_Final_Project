@@ -12,14 +12,10 @@
 	 SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1); //changed enabled module 1 of pwm to work with leds (may need to change)
 	
   //Set GPIO to work with PWM
-  GPIOPinConfigure(GPIO_PF1_M1PWM5);  //CHANGED                                                     //Configures PF1 with TIMER 0 B
-	GPIOPinConfigure(GPIO_PF2_M1PWM6);  //CHANGED                                                     //Configures PF2 with TIMER 1 A
-  GPIOPinConfigure(GPIO_PF3_M1PWM7);  //CHANGED 
 	GPIOPinConfigure(GPIO_PA6_M1PWM2);
 	GPIOPinConfigure(GPIO_PA7_M1PWM3);
 	GPIOPinConfigure(GPIO_PD0_M1PWM0);
 	GPIOPinConfigure(GPIO_PD1_M1PWM1);
-  GPIOPinTypePWM(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); //CHANGED
 	GPIOPinTypePWM(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);
 	GPIOPinTypePWM(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);
 	
@@ -41,9 +37,7 @@
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 
 	  PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500); 
 		
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5,500);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6,500);
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_7,500);
+
 		
     // Enable the PWM generator
 		PWMGenEnable(PWM1_BASE, PWM_GEN_1); //enables gen 2
