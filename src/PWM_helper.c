@@ -12,10 +12,12 @@
 	 SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1); //changed enabled module 1 of pwm to work with leds (may need to change)
 	
   //Set GPIO to work with PWM
+		
+	GPIOPinConfigure(GPIO_PD0_M1PWM0);
+	GPIOPinConfigure(GPIO_PD1_M1PWM1); 
 	GPIOPinConfigure(GPIO_PA6_M1PWM2);
 	GPIOPinConfigure(GPIO_PA7_M1PWM3);
-	GPIOPinConfigure(GPIO_PD0_M1PWM0);
-	GPIOPinConfigure(GPIO_PD1_M1PWM1);
+
 	GPIOPinTypePWM(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);
 	GPIOPinTypePWM(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);
 	
@@ -51,51 +53,4 @@
 
  }
 
-  void functions()
-	{
-	  int value= GPIOPinRead(GPIO_PORTD_BASE,GPIO_PIN_7);
-    if( (value & GPIO_PIN_7)==0)                                                                //Repeat this sequence of light dimming 10 times
-	 {
-		 //Blue brightness goes up
-		for(int i=Period-2; i > 0; i--)                                                       //This for loop will decrement the duty cycle starting
-		 {          																																					//from Period-2 until the duty cycle is 0 and the BLUE LED
-			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6, i);                                             //will become progressively brighter.
-			SysCtlDelay(time);
-	   } 
-	 }
-
-	  int value1= GPIOPinRead(GPIO_PORTD_BASE,GPIO_PIN_6);
-    if( (value1 & GPIO_PIN_6)==0) 
-    { 
-		//Blue brightness goes down
-    for(int i=1; i < Period-1; i++)																											  //This for loop will increment the duty cycle starting
-		 {         																																						//from 1 until the duty cycle is equal to the period 
-      PWMPulseWidthSet(PWM1_BASE, PWM_OUT_6, i);                                             //and the BLUE LED will dim until its off.
-      SysCtlDelay(time);
-		 }  
-		}
-		
-		int value2= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_5);
-    if( (value2 & GPIO_PIN_5)==0)
-		{
-		//Red brightness goes up
-		for(int i=Period-2; i > 0; i--)																												//This for loop will decrement the duty cycle starting
-		 {           																																					//from Period-2 until the duty cycle is 0 and the RED LED
-			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5, i);                                             //will become progressively brighter.                        
-			SysCtlDelay(time);
-		 }  
-		}
-			
-		int value3= GPIOPinRead(GPIO_PORTD_BASE, GPIO_PIN_4);
-    if( (value3 & GPIO_PIN_4)==0)
-		{
-		//Red brightness goes down              
-    for(int i=1; i < Period-1; i++)                                                       //This for loop will increment the duty cycle starting
-		 {																																										//from 1 until the duty cycle is equal to the period 
-      PWMPulseWidthSet(PWM1_BASE, PWM_OUT_5, i);                                      //and the RED LED will dim until its off.	
-      SysCtlDelay(time);
-		 }
-	  }
-
-	  return;																																								//Return to project.c
-  }
+ 
