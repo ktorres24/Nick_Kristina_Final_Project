@@ -1,51 +1,38 @@
-# A Mock up report
-
 ## Names 
-Initials if you dont want them to be public    
+Kristina Torres and Nicholas Hunt   
    
 ## Design Overview
-This should be a general description.  It should make sense to your grandma / or a high school student.  It should explain what the project is, what it does, and how to set it up. Example:
-<em> This device is a tool used in the machining industry to control rotational speed of the shaft of a lathe.  The device consists of a motor to rotate the lathe, a dial to control the speed manual, an input port to control the speed via a computer terminal, a screen to display the rotational speed, an encoder to measure the rotation, and two emergency stop switches for safety. 
+This is a small four wheel car that send signals to 4 seperate motors at different speeds to make it steer. The direction of the car is determined by which of the 4 buttons the user presses (forward,backward,left right). 
     
 ## Hardware List
-Motor - 240VAC  - Fleebl V2.0 - Norsten Mortaincs...        
-Superphased Motor Encoder - 13 bit - Off-World encoders...    
-...     
-...    
-Embedded web links, prices, etc.  
+TM4C123 LaunchPad      
+4 Pin Momentary Switch  
+4 DC Mini Electric Motors     
+2 Dual TB6612FNG Breakout   
+2 AA Battery (4-Pack)  
+2 Battery Holders
 
 ## Hardware Description
-The Motor is connected to the encoder via JPF-23 cable, 3 wire, doubled shield.  The Encoder has a 13 bit resolution which allows the micrprocessor to control the motor to within N rpms, etc etc.  The schematic is show below.
+Inputs:  Buttons used to control the direction of the car.
+PF4 (Left)
+PF0 (Right) 
+PD6 (Forward) 
+PD7 (Backwards)
 
-![schematic](https://github.com/drnobodyphd/LAB_SETUP/blob/master/images/schem.jpg)    
-
+Outputs: Used to send PWM to motors and high/low reading to driver inputs for rotation direction.
+PD0 (Front right motor)
+PD1 (Back right motor)
+PA6 (Front left motor) 
+PA7 (Back left motor)
+PE1 (AIN1)
+PE2 (AIN2)
+PE3 (STBY Driver #1)
+PC5 (BIN1)
+PC6 (BIN2)
+PC7 (STBY Driver #2)
 
 ## Software Description
-C files added by users, special functions, important functions, software flow, etc.   Flowcharts are also fine.  
-
-The file structure for this projects is as follows:
-
-<pre><code>├── project_template
-    |   ├── .gitignore                <em>(list of files to ignore in Repo)</em>
-    |   ├── README.md                 <em>(a README file in markup language)</em>
-    |   ├── project.uvprojx           <em>(the keil project file)</em>
-    |   ├── project.c                 <em>(your main c file)</em>
-    |   ├── project.h                 <em>(your main header)</em>
-    |   ├── project.sct               <em>(scatter file)</em>
-    |   ├── startup_rvmdk.S           <em>(startup file in asm)</em>
-    |   ├── src                       <em>(Directory for your .c and .h )</em>
-            ├── *.c files             <em>(*.c , the meat of the code)</em>
-            ├── *.h files             <em>(*.h , the menu of the code)</em>
-    |       └── ...  
-    |   ├── inc                       <em>(Directory for precompiled libraries and headers)</em>
-    |       ├── *.h files             <em>(*.h , the menu for micro controller)</em>
-    |       ├── *.lib files           <em>(*.lib ,precompiled libraries)</em>
-    |       └── ...  
-    |   ├── driverlib                 <em>(Directory for driver libraries source)</em>
-    |       ├── *.h files             
-    |       ├── *.c files
-    |       └── ...  
-    └── </code></pre>
+Most important parts of our software/code were setting the duty cycle for different speeds and setting certain pins high or loew for CW and CCW rotation. These functions are summarized below.
 
 ## Summary and Conclusions
-Put something here that shows you learned something and / or you understand what you are talking about.  
+Overall this project provided us with a good opportunity to figure out a lot of the problems we could run into with our senior project. Additionally, we learned more about PWM/setting clocks properly and that we should comment as we code :)
