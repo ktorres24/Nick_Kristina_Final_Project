@@ -33,6 +33,8 @@ PC7 (STBY Driver #2)
 
 ## Software Description
 Most important parts of our software/code were setting the duty cycle for different speeds and setting certain pins high or loew for CW and CCW rotation. These functions are summarized below.
+![high low](https://user-images.githubusercontent.com/31192254/33670571-6cf914b2-da73-11e7-8700-9a7141503169.PNG)
+
 
 ## Summary and Conclusions
 Overall this project provided us with a good opportunity to figure out a lot of the problems we could run into with our senior project. Additionally, we learned more about PWM/setting clocks properly and that we should comment as we code :)
