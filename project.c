@@ -51,7 +51,7 @@ int GPIO_BACK;
 
 int main()
 {
-  Gpio_setup();
+	Gpio_setup();
 	PWM_setup();
 		
 	//Set Motor Driver input pins low to start 

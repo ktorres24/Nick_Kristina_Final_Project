@@ -6,7 +6,7 @@
  void PWM_setup(void)
  {
 	 
-   SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC |   SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ); //changed set the clock
+   SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ); //changed set the clock
 
    SysCtlPWMClockSet(SYSCTL_PWMDIV_1); //changed set the PWM clock with the system clock
 	 SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1); //changed enabled module 1 of pwm to work with leds (may need to change)
