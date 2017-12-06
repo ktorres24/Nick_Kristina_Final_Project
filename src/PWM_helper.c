@@ -13,13 +13,13 @@
 	
   //Set GPIO to work with PWM
 		
-	GPIOPinConfigure(GPIO_PD0_M1PWM0);
-	GPIOPinConfigure(GPIO_PD1_M1PWM1); 
-	GPIOPinConfigure(GPIO_PA6_M1PWM2);
-	GPIOPinConfigure(GPIO_PA7_M1PWM3);
+		GPIOPinConfigure(GPIO_PD0_M1PWM0);
+		GPIOPinConfigure(GPIO_PD1_M1PWM1); 
+		GPIOPinConfigure(GPIO_PA6_M1PWM2);
+		GPIOPinConfigure(GPIO_PA7_M1PWM3);
 
-	GPIOPinTypePWM(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);
-	GPIOPinTypePWM(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);
+		GPIOPinTypePWM(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);
+		GPIOPinTypePWM(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);
 	
     PWMGenConfigure(PWM1_BASE, PWM_GEN_1, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC);	 
     PWMGenConfigure(PWM1_BASE, PWM_GEN_0, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); // CHANGED configures gen modes
@@ -28,8 +28,8 @@
                                                                //Sets Duty_Cycle to 400Hz
 
     //Set the Period (expressed in clock ticks)
-		PWMGenPeriodSet(PWM1_BASE, PWM_GEN_1, 5000); //changed
-    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_0, 5000); //changed
+		PWMGenPeriodSet(PWM1_BASE, PWM_GEN_1, 5000); 
+    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_0, 5000);
 
 
     //Set PWM duty-50% (Period /2)
@@ -39,15 +39,10 @@
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 500); 
 	  PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, 500); 
 		
-
-		
-    // Enable the PWM generator
-		PWMGenEnable(PWM1_BASE, PWM_GEN_1); //enables gen 2
-    PWMGenEnable(PWM1_BASE, PWM_GEN_0); //enables gen 2
+		PWMGenEnable(PWM1_BASE, PWM_GEN_1); //Enables GEN1
+    PWMGenEnable(PWM1_BASE, PWM_GEN_0); //Enables GEN0
   
-		
-		// Turn on the Output pins
-    PWMOutputState(PWM1_BASE, PWM_OUT_0_BIT | PWM_OUT_1_BIT | PWM_OUT_2_BIT | PWM_OUT_3_BIT, true);
+    PWMOutputState(PWM1_BASE, PWM_OUT_0_BIT | PWM_OUT_1_BIT | PWM_OUT_2_BIT | PWM_OUT_3_BIT, true);		// Turn on the Output pins
 		
 	return;         																																				 //Return to project.c
 
