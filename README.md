@@ -32,8 +32,15 @@ PC6 (BIN2)
 PC7 (STBY Driver #2)
 
 ## Software Description
-Most important parts of our software/code were setting the duty cycle for different speeds and setting certain pins high or loew for CW and CCW rotation. These functions are summarized below.
+Most important parts of our software/code were setting the duty cycle for different speeds and setting certain pins high or low for CW and CCW rotation. These functions are summarized below.
+
+GPIOPinWrite high or low to the motor driver input based on this table:
+
 ![high low](https://user-images.githubusercontent.com/31192254/33670571-6cf914b2-da73-11e7-8700-9a7141503169.PNG)
+
+PWMPulseWidthSet a value of 500 or 900 to change the speed of the motor based on direction shown on this table:
+
+![duty cycle](https://user-images.githubusercontent.com/31192254/33670794-e425df98-da73-11e7-9f67-95e0b8104327.PNG)
 
 
 ## Summary and Conclusions
