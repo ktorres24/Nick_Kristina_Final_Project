@@ -14,6 +14,35 @@ __error__(char *pcFilename, uint32_t ui32Line)
 }
 #endif
 
+//*****************************************************************************
+//
+// This code is first used to call the function that sets up GPIO and PWM. It then 
+// goes into a continuous while loop. This while checks the conditions of the buttons.
+// A forward left turn is called by first checking if PD6 is pressed and then checks if
+// PD4 is also pressed. If it is pressed PWM signals of different duty cycles will be sent
+// to each motor, this is called skid steering. This process is repeated for forward right
+// turn, forward, left backward turn, right backward turn, backwards, sharp right turn, and 
+// sharp left turn. The duty cycles for each case are as follows:
+//
+// 		Left forward motion: front left motor 50% back left motor 50% front right motor 90% back right motor 90%
+//		Right forward motion: front left motor 90% back left motor 90% front right motor 50% back right motor 50%
+//		Forward motion: front left motor 90% back left motor 90% front right motor 90% back right motor 90%
+//		Backward left motion: front left motor 50% back left motor 50% front right motor 90% back right motor 90%
+//		Backward right motion: front left motor 90% back left motor 90% front right motor 50% back right motor 50%
+//		Backward motion: front left motor 90% back left motor 90% front right motor 90% back right moto 90%
+//		Sharp right: front left motor 90% back left motor 90% front right motor 0% back right motor 0%
+//		Sharp left: front left motor 0% back left motor 0% front right motor 90% back right motor 90%
+// 
+// In order to create forward vs. backwards (CW/CCW) AIN1/AIN2 and BIN1/BIN2 must be set high/low properly. They
+// must be set as follows:
+//
+//		IN1 L  IN2 H CCW
+//		IN1 H  IN2 L CW
+//
+//
+// More information on our hardware can be found on the README file
+//
+//*****************************************************************************
 int GPIO_LEFT;
 int GPIO_FWD;
 int GPIO_RIGHT;
@@ -22,7 +51,7 @@ int GPIO_BACK;
 
 int main()
 {
-  Gpio_setup();
+	Gpio_setup();
 	PWM_setup();
 		
 	//Set Motor Driver input pins low to start 
@@ -276,10 +305,10 @@ int main()
 		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, GPIO_PIN_3);	
 		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0);	
 			
-		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 
-    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0);
-		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);
-		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);	
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 					//set PWM signals low
+    PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, 0);          //set PWM signals low
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);  		//SET AI1 high
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);			//SET AI2 high
 		
 		}
 		
