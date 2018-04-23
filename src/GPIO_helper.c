@@ -17,8 +17,8 @@ void Gpio_setup()
 			GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines the RGB Leds as outputs
 			GPIOPinTypeGPIOOutput(GPIO_PORTE_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3); // Defines 3 motor driver inputs for direction
 		  GPIOPinTypeGPIOOutput(GPIO_PORTC_BASE, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7); // Defines 3 motor driver inputs for direction 
-			GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, GPIO_PIN_0|GPIO_PIN_1);  // Defines outputs for the 2 right motors 
-			GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_6|GPIO_PIN_7);  // Defines outputs for the 2 left motors
+			GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, GPIO_PIN_0);  // Defines outputs for the right motor 
+			GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, GPIO_PIN_6);  // Defines outputs for the left motor
 			GPIOPinTypeGPIOInput (GPIO_PORTD_BASE, GPIO_PIN_6|GPIO_PIN_7);  // Defines two pins as inputs to be used for the two MOM switches
 		  GPIOPinTypeGPIOInput(GPIO_PORTF_BASE, GPIO_PIN_0|GPIO_PIN_4);   // Defines 2 on board switches as inputes
 
