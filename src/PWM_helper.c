@@ -10,7 +10,7 @@
     SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
 
    //Configure PWM Clock to match system
-   SysCtlPWMClockSet(SYSCTL_PWMDIV_64);
+   SysCtlPWMClockSet(SYSCTL_PWMDIV_1);
 	 SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM1); //changed enabled module 1 of pwm
 	 SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM0); //changed enabled module 0 of pwm
   //Set GPIO to work with PWM
@@ -25,9 +25,9 @@
     PWMGenConfigure(PWM0_BASE, PWM_GEN_3, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); //Configure GEN1	 
     PWMGenConfigure(PWM1_BASE, PWM_GEN_1, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC); //Configure GEN0
                     
-    //Set the Period (expressed in clock ticks)
-		PWMGenPeriodSet(PWM0_BASE, PWM_GEN_3, 1000); //2Khz frequency
-    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_1, 1000); //2Khz frequency
+    //Set the Period (expressed in clock ticks) comments need to be fixed
+		PWMGenPeriodSet(PWM0_BASE, PWM_GEN_3, 1000); //16kHz frequency
+    PWMGenPeriodSet(PWM1_BASE, PWM_GEN_1, 1000); //16kHz frequency
 		
 		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_6, 500); 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 500);
@@ -36,7 +36,7 @@
     PWMGenEnable(PWM1_BASE, PWM_GEN_1); //Enables GEN0
   
     PWMOutputState(PWM0_BASE, PWM_OUT_6_BIT, true);		// Turn on the Output pins
-		PWMOutputState(PWM1_BASE, PWM_OUT_2_BIT, true);
+		PWMOutputState(PWM1_BASE, PWM_OUT_2_BIT, true);   // Turn on the Output pins
 	return;         																																				 //Return to project.c
 
  }
