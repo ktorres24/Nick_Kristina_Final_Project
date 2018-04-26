@@ -104,7 +104,7 @@ while (1)
 			PWMPulseWidthSet(PWM0_BASE, PWM_OUT_6, 900);            //send 90% duty PWM signal on right wheel
 			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 900);						//send 90% duty PWM signal on left whee
 			SysCtlDelay( (SysCtlClockGet()/(100)));	
-			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0);		//Turn off LED	
+			GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3, 0);					//Turn off LED	
 			PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0);						//set PWM signals low 
 			PWMPulseWidthSet(PWM0_BASE, PWM_OUT_6, 0); 						//set PWM signals low
 			
@@ -114,28 +114,40 @@ while (1)
 			}
 	
 		
-		//LEFT (0 turn)
+		//LEFT (90 turn)
 		if((GPIO_LEFT & GPIO_PIN_4) == 0)
-		{ 	
+		{ 
 		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, GPIO_PIN_5);	//set BI1 high
 		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, 0);					//set BI2 low 	(BI1 high + BI2 low = FWD)
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, 0);            //set AI1 low
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);		//set AI2 high (AI1 low + AI2 high= BKWD)
 		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_6, 900);          //send 90% duty PWM signal on right wheel 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 900); 					//send 90% duty PWM signal on left wheel
 		SysCtlDelay( (SysCtlClockGet()/(100)));	
 		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_6, 0);						//set PWM signals low 
+		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 					//set PWM signals low
 		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, GPIO_PIN_5);					//SET BI1 high
 		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, GPIO_PIN_6);					//SET BI2 high
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);  		//SET AI1 high
+		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);			//SET AI2 high
 		}
 		
-		//RIGHT (0 turn)
+		//RIGHT (90 turn)
 		if((GPIO_RIGHT & GPIO_PIN_0)== 0)
 		{
 		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);	//set AI1 high 
 		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, 0);					//set AI2 low   (AI1 high + AI2 low = FWD)
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, 0);						//set BI1 low 
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, GPIO_PIN_6);		//set BI2 high (BI1 low + BI2 high=BKWD)	
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 900); 					//send 90% duty PWM signal on left wheel
-		SysCtlDelay( (SysCtlClockGet()/(100)));		
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_6, 900);          //send 90% duty PWM signal on right wheel 
+		SysCtlDelay( (SysCtlClockGet()/(100)));	
+		PWMPulseWidthSet(PWM0_BASE, PWM_OUT_6, 0);						//set PWM signals low 
 		PWMPulseWidthSet(PWM1_BASE, PWM_OUT_2, 0); 					//set PWM signals low
 		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_1, GPIO_PIN_1);  		//SET AI1 high
 		GPIOPinWrite(GPIO_PORTE_BASE,GPIO_PIN_2, GPIO_PIN_2);			//SET AI2 high
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, GPIO_PIN_5);					//SET BI1 high
+		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_6, GPIO_PIN_6);					//SET BI2 high
 		
 		}
 		
