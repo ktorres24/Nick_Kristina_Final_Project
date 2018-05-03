@@ -19,16 +19,16 @@ __error__(char *pcFilename, uint32_t ui32Line)
 // This code is first used to call the function that sets up GPIO and PWM. It then 
 // goes into a continuous while loop. This while loop checks the conditions of the buttons.
 // Depending on which button is pressed PWM signals of different duty cycles will be sent
-// to each motor, this is called skid steering. This process is repeated for forwards, backwards, sharp right turn, and 
-// sharp left turn. The duty cycles for each case are as follows:
+// to each motor, this is called skid steering. This process is repeated for forwards, backwards,
+//sharp right turn, and sharp left turn. The duty cycles for each case are as follows:
 //
 //		Forward motion: left motor 90% right motor 90% 
 //		Backward motion: left motor 90% right motor 90% 
 //		Sharp right: left motor 90% right motor 0% 
 //		Sharp left: left motor 0% right motor 90% 
 // 
-// In order to create forward vs. backwards (CW/CCW) AIN1/AIN2 and BIN1/BIN2 must be set high/low properly. They
-// must be set as follows:
+// In order to create forward vs. backwards (CW/CCW) AIN1/AIN2 and BIN1/BIN2 must be set 
+// high/low properly. They must be set as follows:
 //
 //		IN1 L  IN2 H CCW
 //		IN1 H  IN2 L CW
@@ -114,7 +114,7 @@ while (1)
 			}
 	
 		
-		//LEFT (90 turn)
+		//LEFT 
 		if((GPIO_LEFT & GPIO_PIN_4) == 0)
 		{ 
 		GPIOPinWrite(GPIO_PORTC_BASE,GPIO_PIN_5, GPIO_PIN_5);	//set BI1 high

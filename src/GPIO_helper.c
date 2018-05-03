@@ -2,7 +2,8 @@
 
 //This function sets up GPIO pins:
 //	Inputs:  SW1 (left), SW2 (Right), PD6 (Forward), PD7 (Backwards)
-//  Outputs: PD0 (front right motor), PD1 (back right motor), PA6 (front left motor), PA7 (back left motor), PD1 (red led indicates forward movement),
+//  Outputs: PD0 (front right motor), PD1 (back right motor), PA6 (front left motor), PA7 (back left motor),
+//	PD1 (red led indicates forward movement),
 //	PD2 (blue led indicates backwards movement), PD3 (green led indicates left and right movement
 //	The LEDs are simply used to show that the proper loops are being taken in the main function. 
 

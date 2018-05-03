@@ -1,6 +1,6 @@
  #include "PWM_helper.h"
 
- int Period, Duty_Cycle, value;																														 //Initializes variables
+ int Period, Duty_Cycle, value;									 //Initializes variables
  
 
  void PWM_setup(void)
@@ -37,8 +37,7 @@
   
     PWMOutputState(PWM0_BASE, PWM_OUT_6_BIT, true);		// Turn on the Output pins
 		PWMOutputState(PWM1_BASE, PWM_OUT_2_BIT, true);   // Turn on the Output pins
-	return;         																																				 //Return to project.c
-
+	return;         																		//Return to project.c
  }
 
  
